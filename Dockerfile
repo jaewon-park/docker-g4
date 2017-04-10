@@ -5,7 +5,10 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y git dpkg-dev make g++ gcc cmake \
     binutils libx11-dev libxpm-dev libxft-dev \
     libxext-dev libpng12-dev libjpeg-turbo8-dev \
-    python gfortran libssl-dev wget libgsl0ldbl libgsl0-dev
+    python gfortran libssl-dev wget libgsl0ldbl libgsl0-dev \
+    cmake-curses-gui build-essential \
+    libqt4-opengl libqt4-opengl-dev qt4-qmake libqt4-dev libx11-dev \
+    libxmu-dev libxpm-dev libxft-dev
 
 
 ENV ROOT_TAR="root_v6.05.02.Linux-ubuntu14-x86_64-gcc4.8.tar.gz"
