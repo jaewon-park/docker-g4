@@ -17,3 +17,6 @@ ENV LD_LIBRARY_PATH="$ROOTSYS/lib:$LD_LIBRARY_PATH"
 
 RUN mkdir /cern \
     && cd /cern 
+
+RUN mkdir -p /sw/build \
+    && cd /sw/build
