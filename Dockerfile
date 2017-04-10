@@ -19,7 +19,9 @@ ENV PATH="$ROOTSYS/bin:$PATH"
 ENV LD_LIBRARY_PATH="$ROOTSYS/lib:$LD_LIBRARY_PATH"
 
 RUN mkdir /cern \
-    && cd /cern 
+    && cd /cern  \
+    && tar xzfv $ROOT_TAR \
+    && rm -rf $ROOT_TAR
 
 RUN mkdir -p /sw \
     && cd /sw \
