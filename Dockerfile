@@ -18,5 +18,17 @@ ENV LD_LIBRARY_PATH="$ROOTSYS/lib:$LD_LIBRARY_PATH"
 RUN mkdir /cern \
     && cd /cern 
 
-RUN mkdir -p /sw/build \
-    && cd /sw/build
+RUN mkdir -p /sw \
+    && cd /sw \
+    && wget http://geant4.cern.ch/support/source/geant4.10.01.tar.gz \
+    && tar zxf geant4.10.01.tar.gz \
+    && rm -f geant4.10.01.tar.gz \
+    && mkdir -p geant4-build \
+    && cd geant4-build \
+    && cmake /sw/geant4.10.01 -DGEANT4_BUILD_MULTITHREADED=ON \
+         -DGEANT4_USE_QT=ON -DGEANT4_USE_OPENGL_X11=ON \
+         -DGEANT4_USE_RAYTRACER_X11=ON -DGEANT4_INSTALL_DATA=ON \
+         -Wno-dev \
+    && make -j`grep -c processor /proc/cpuinfo` \
+    && make install
+    
