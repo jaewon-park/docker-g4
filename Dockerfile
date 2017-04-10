@@ -15,5 +15,5 @@ ENV ROOTSYS="/cern/root/"
 ENV PATH="$ROOTSYS/bin:$PATH"
 ENV LD_LIBRARY_PATH="$ROOTSYS/lib:$LD_LIBRARY_PATH"
 
-RUN mkdir /cern; \
- && cd /cern 
+RUN mkdir /cern \
+    && cd /cern 
